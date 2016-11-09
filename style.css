@@ -1,0 +1,12 @@
+@charset "UTF-8";
+/* CSS Document */
+
+table,
+tr,
+td {
+	border: 1px solid #999;
+	border-collapse: collapse;
+	font-size: 15px;
+}
+
+td {padding: 5px;}

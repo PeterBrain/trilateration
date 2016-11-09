@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Trilateration</title>
+		<link href="style.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+
+<!--Debug-Wertausgabe-->
+<span id="out"></span>
+
+<label> X A:</label>
+<input type="range" id="xa" min="0" max="1" step="0.005" value="1.000">
+<label> Y A:</label>
+<input type="range" id="ya" min="0" max="1" step="0.005" value="0.830">
+<label> Radius A:</label>
+<input type="range" id="ra" min="0" max="1" step="0.005" value="0.583">
+<br>
+<label> X B:</label>
+<input type="range" id="xb" min="0" max="1" step="0.005" value="0.000">
+<label> Y B:</label>
+<input type="range" id="yb" min="0" max="1" step="0.005" value="0.583">
+<label> Radius B:</label>
+<input type="range" id="rb" min="0" max="1" step="0.005" value="0.500">
+<br>
+<label> X C:</label>
+<input type="range" id="xc" min="0" max="1" step="0.005" value="0.083">
+<label> Y C:</label>
+<input type="range" id="yc" min="0" max="1" step="0.005" value="0.000">
+<label> Radius C:</label>
+<input type="range" id="rc" min="0" max="1" step="0.005" value="0.750">
+
+<!--<div style="padding: 10px;">
+	<div style="display: inline-block; vertical-align: top; width: 33.3333%;">
+		<div>
+			<label> X A:</label>
+			<input type="range" id="xa" min="0" max="1" step="0.005" value="1.000">
+		</div>
+		<div>
+			<label> X B:</label>
+			<input type="range" id="xb" min="0" max="1" step="0.005" value="0.000">
+		</div>
+		<div>
+			<label> X C:</label>
+			<input type="range" id="xc" min="0" max="1" step="0.005" value="0.083">
+		</div>
+	</div><!--
+	--<div style="display: inline-block; vertical-align: top; width: 33.3333%;">
+		<div>
+			<label> Y A:</label>
+			<input type="range" id="ya" min="0" max="1" step="0.005" value="0.830">
+		</div>
+		<div>
+			<label> Y B:</label>
+			<input type="range" id="yb" min="0" max="1" step="0.005" value="0.583">
+		</div>
+		<div>
+			<label> Y C:</label>
+			<input type="range" id="yc" min="0" max="1" step="0.005" value="0.000">
+		</div>
+	</div><!--
+	--<div style="display: inline-block; vertical-align: top; width: 33.3333%;">
+		<div>
+			<label> Radius A:</label>
+			<input type="range" id="ra" min="0" max="1" step="0.005" value="0.583">
+		</div>
+		<div>
+			<label> Radius B:</label>
+			<input type="range" id="rb" min="0" max="1" step="0.005" value="0.500">
+		</div>
+		<div>
+			<label> Radius C:</label>
+			<input type="range" id="rc" min="0" max="1" step="0.005" value="0.750">
+		</div>
+	</div>
+</div>-->
+
+<div>
+	<!--Canvas Ausgabe-->
+	<canvas id="canvas1" width="600" height="600" style="border: 1px solid #000; display: inline-block; vertical-align: top;"></canvas>
+	
+	<!--Tabelle mit den Werten zum Nachrechnen-->
+	<table style="display: inline-block; vertical-align: top;">
+		<tr>
+			<td>Bezeichnung:</td>
+			<td>X:</td>
+			<td>Y:</td>
+		</tr>
+		<tr>
+			<td>Schnittpunkt 1</td>
+			<td id="tablex0">-</td>
+			<td id="tabley0">-</td>
+		</tr>
+		<tr>
+			<td>Schnittpunkt 2</td>
+			<td id="tablex1">-</td>
+			<td id="tabley1">-</td>
+		</tr>
+		<tr>
+			<td>Schnittpunkt 3</td>
+			<td id="tablex2">-</td>
+			<td id="tabley2">-</td>
+		</tr>
+		<tr>
+			<td>Schnittpunkt 4</td>
+			<td id="tablex3">-</td>
+			<td id="tabley3">-</td>
+		</tr>
+		<tr>
+			<td>Schnittpunkt 5</td>
+			<td id="tablex4">-</td>
+			<td id="tabley4">-</td>
+		</tr>
+		<tr>
+			<td>Schnittpunkt 6</td>
+			<td id="tablex5">-</td>
+			<td id="tabley5">-</td>
+		</tr>
+		<tr>
+			<td>Gerade 1</td>
+			<td id="tablex6">-</td>
+			<td id="tabley6">-</td>
+		</tr>
+		<tr>
+			<td>Gerade 2</td>
+			<td id="tablex7">-</td>
+			<td id="tabley7">-</td>
+		</tr>
+		<tr>
+			<td>Gerade 3</td>
+			<td id="tablex8">-</td>
+			<td id="tabley8">-</td>
+		</tr>
+		<tr>
+			<td>Standort</td>
+			<td id="tablePx0">-</td>
+			<td id="tablePy0">-</td>
+		</tr>
+		<tr>
+			<td>Standort</td>
+			<td id="tablePx1">-</td>
+			<td id="tablePy1">-</td>
+		</tr>
+		<tr>
+			<td>Standort</td>
+			<td id="tablePx2">-</td>
+			<td id="tablePy2">-</td>
+		</tr>
+	</table>
+</div>
+
+<script type="text/javascript" src="script.js"></script>
+
+	</body>
+</html>
