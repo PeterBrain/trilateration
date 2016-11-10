@@ -4,7 +4,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/peterbrain/trilateration.svg?style=social&label=Fork)]()
 
 [![GitHub author](https://img.shields.io/badge/Author-PeterBrain-3BCDD6.svg)](http://peterbrain.github.io)
-[![GitHub author](https://img.shields.io/badge/language-JavaScript-F7DF1E.svg)]()
+[![GitHub author](https://img.shields.io/badge/language-JavaScript-F1BF26.svg)]()
 
 # 2D Trilateration
 Visualized 2-dimensional trilateration with controls
