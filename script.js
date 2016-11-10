@@ -66,7 +66,12 @@ function init() {
 	};
 	
 	//Trilateration berechnen in einer Funktion
-	var P0 = IntersectionCircle([A.x, A.y], A.r, [B.x, B.y], B.r, [C.x, C.y], C.r, width, diff);
+	var P0 = IntersectionCircle(
+		[A.x, A.y], A.r,
+		[B.x, B.y], B.r,
+		[C.x, C.y], C.r,
+		width, diff
+	);
 	//document.getElementById("out").innerHTML = P0;
 	
 	for (var i = 0; i < 9; i++) {
@@ -107,7 +112,14 @@ function init() {
 		y: P0[8][1]
 	}];
 	
-	var P1 = IntersectionLines([P[0].x, P[0].y], [P[1].x, P[1].y], [P[2].x, P[2].y], [P[3].x, P[3].y], [P[4].x, P[4].y], [P[5].x, P[5].y]);
+	var P1 = IntersectionLines(
+		[P[0].x, P[0].y],
+		[P[1].x, P[1].y],
+		[P[2].x, P[2].y],
+		[P[3].x, P[3].y],
+		[P[4].x, P[4].y],
+		[P[5].x, P[5].y]
+	);
 	
 	K = [{
 		x: P1[0][0],
@@ -128,10 +140,10 @@ function init() {
 		document.getElementById('tablePy' + i).innerHTML = K[i].y.toFixed(4);
 	}
 	
-	Canvas(A, B, C, P, K, width, diff);
+	Canvas(A, B, C, P, K, width, diff, canvas, ctx);
 }
 
-function Canvas(A, B, C, P, K, width, diff) {
+function Canvas(A, B, C, P, K, width, diff, canvas, ctx) {
 	//Canvas Area Style
 	if (P !== null) {
 		ctx.fillStyle = "#EEE";
@@ -484,11 +496,11 @@ function IntersectionLines(S1, S2, S3, S4, S5, S6) {
 	
 	
 	//zerlegen des Vektors zwischen B und C
-	var qx = S2S1xbc * exb + S2S1ybc * eyb;
-	var qy = S2S1xbc * nxb + S2S1ybc * nyb;
+	qx = S2S1xbc * exb + S2S1ybc * eyb;
+	qy = S2S1xbc * nxb + S2S1ybc * nyb;
 	//zerlegen des Einheitsvektors zwischen B und C
-	var sx = exc * exb + eyc * eyb;
-	var sy = exc * nxb + eyc * nyb;
+	sx = exc * exb + eyc * eyb;
+	sy = exc * nxb + eyc * nyb;
 	//lambda für das einsetzen ind die Polynomdastellung
 	var b = qx - qy * sx / sy;
 	//X- und Y-Koordinate berechnen
@@ -497,11 +509,11 @@ function IntersectionLines(S1, S2, S3, S4, S5, S6) {
 	
 	
 	//zerlegen des Vektors zwischen C und A
-	var qx = S2S1xca * exc + S2S1yca * eyc;
-	var qy = S2S1xca * nxc + S2S1yca * nyc;
+	qx = S2S1xca * exc + S2S1yca * eyc;
+	qy = S2S1xca * nxc + S2S1yca * nyc;
 	//zerlegen des Einheitsvektors zwischen C und A
-	var sx = exa * exc + eya * eyc;
-	var sy = exa * nxc + eya * nyc;
+	sx = exa * exc + eya * eyc;
+	sy = exa * nxc + eya * nyc;
 	//lambda für das einsetzen in die Polynomdastellung
 	var c = qx - qy * sx / sy;
 	//X- und Y-Koordinate berechnen
