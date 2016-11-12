@@ -11,4 +11,4 @@ Visualized 2-dimensional trilateration with controls
 
 ~~I was too lazy to copy it from my JSFiddle Account... so here is a link to it~~
 
-~~Here it is: [2D Trilateration](https://jsfiddle.net/PeterBrain/b1p1g4Lp/42/)~
+~~Here it is: [2D Trilateration](https://jsfiddle.net/PeterBrain/b1p1g4Lp/42/)~~
